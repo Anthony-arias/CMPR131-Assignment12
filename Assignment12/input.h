@@ -37,11 +37,16 @@ char inputChar(string prompt, char yes, char no)
 			cin.clear();
 			cin.ignore(999, '\n');
 		}
-		else if (tolower(input) != tolower(yes) && tolower(input) != tolower(no))
-			cout << "ERROR: Invalid input. Must be a '" << static_cast<char>(toupper(yes)) << "' or '" << static_cast<char>(toupper(no)) << "' character.\n";
 		else
-			break;
+		{
+			if (tolower(input) != tolower(yes) && tolower(input) != tolower(no))
+				cout << "ERROR: Invalid input. Must be a '" << static_cast<char>(toupper(yes)) << "' or '" << static_cast<char>(toupper(no)) << "' character.\n";
+			else
+				break;
+		}
 	} while (true);
+	cin.clear();
+	cin.ignore(999, '\n');
 	return toupper(input);
 }
 

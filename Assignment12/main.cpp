@@ -52,22 +52,26 @@ void mainMenu(void)
 //PostCondition: 
 void programOne(void)
 {
+    
+    vector<string>array;
     do
     {
+        clearScreen();
         displayOptionOneMenu();
         int option = inputChar("\t\tOption: ");
 
         switch (option)
         {
         case '0': return;
-        case 'a': case 'A': /*function here*/ break;
-        case 'b': case 'B': /*function here*/ break;
-        case 'c': case 'C': /*function here*/ break;
-        case 'd': case 'D': /*function here*/ break;
-        case 'e': case 'E': /*function here*/ break;
+        case 'a': case 'A': initArray(array); break;
+        case 'b': case 'B': push(array); break;
+        case 'c': case 'C': display(array); break;
+        case 'd': case 'D': search(array); break;
+        case 'e': case 'E': clearArray(array); break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A','B','C','D', or 'E'" << endl;
-            pause("\n\t\tPress enter to continue...");
         }
+        cout << endl;
+        pause("\n\t\tPress enter to continue...");
     } while (true);
 }
 

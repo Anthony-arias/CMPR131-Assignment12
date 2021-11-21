@@ -25,7 +25,7 @@ void displayOptionOneMenu(void)
 {
     cout << "\n\t1> Searching unsorted dynamic arrays" << endl;
     cout << "\t" + string(100, char(205)) << endl;
-    cout << "\t\tA> Read data file and store into the array" << endl;
+    cout << "\t\tA> Read random string data and store into the dynamic array" << endl;
     cout << "\t\tB> Add an element to the dynamic array" << endl;
     cout << "\t\tC> Display elements from the array" << endl;
     cout << "\t\tD> Search for an element from the array" << endl;
