@@ -5,6 +5,32 @@
 #include <iomanip>
 using namespace std;
 
+// Precondition: highbound must be greater than lowbound
+// Postcondition: returns an integer between lowbound and highbound
+int randomInt(int lowBound, int highBound)
+{
+	// static means variable lasts life of program
+	static int randomInitialized = false;
+	if (!randomInitialized)
+	{
+		srand(unsigned(time(0)));
+		int junk = rand(); // throw away the first "random" number
+		randomInitialized = true;
+	}
+	int rangeSize = 1 + highBound - lowBound;
+
+	// a really BAD result:
+	// rand() % rangeSize; // 0 .. (rangeSize-1)
+	// return (rand() % rangeSize) + lowBound; // lowBound .. highBound
+
+	// better (not very efficient but good enough for us):
+	float number = float(rand());
+	number /= float(RAND_MAX) + 1;	// [0 .. 1)
+	number *= rangeSize;			// [0 .. rangeSize)
+	int flored = int(number);			// [0 .. rangeSize-1]
+	return flored + lowBound;
+}
+
 //PreCondition: spaces (boolean true or false)
 //PostCondition: returns a string including space character(s) or without space character 
 string inputString(string prompt, bool spaces)
