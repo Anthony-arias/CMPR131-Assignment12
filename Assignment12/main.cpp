@@ -105,6 +105,8 @@ void programTwo(void)
 //PostCondition: 
 void programThree(void)
 {
+    DynamicString dynamicString;
+
     do
     {
         clearScreen();
@@ -115,11 +117,11 @@ void programThree(void)
         switch (option)
         {
         case '0': return;
-        case 'a': case 'A': /*function here*/ break;
-        case 'b': case 'B': /*function here*/  break;
-        case 'c': case 'C': /*function here*/  break;
-        case 'd': case 'D': /*function here*/  break;
-        case 'e': case 'E': /*function here*/  break;
+        case 'a': case 'A': A3(dynamicString);  pause("\n\t\tPress enter to continue..."); break;
+        case 'b': case 'B': /*function here*/  pause("\n\t\tPress enter to continue..."); break;
+        case 'c': case 'C': /*function here*/  pause("\n\t\tPress enter to continue..."); break;
+        case 'd': case 'D': /*function here*/  pause("\n\t\tPress enter to continue..."); break;
+        case 'e': case 'E': E3(dynamicString);  pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A','B','C','D', or 'E'" << endl;
             pause("\n\t\tPress enter to continue...");
         }

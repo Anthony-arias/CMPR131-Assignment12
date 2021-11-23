@@ -149,6 +149,9 @@
     <ClInclude Include="optionThree.h" />
     <ClInclude Include="optionTwo.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Students.dat" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

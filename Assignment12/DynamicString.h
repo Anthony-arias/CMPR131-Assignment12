@@ -98,6 +98,14 @@ public:
 		size++;
 	}
 
+	void addAt(std::string line, int targetIndex) {
+		if (targetIndex >= size || targetIndex < 0) 
+			throw std::invalid_argument("addAt: targetIndex out of range");
+		else {
+			myArr[targetIndex] = line;
+		}
+	}
+
 	// Precondition: newSize must be greater or equal to 0
 	// Postcondition: sets size to newSize
 	int setSize(const int newSize) {
