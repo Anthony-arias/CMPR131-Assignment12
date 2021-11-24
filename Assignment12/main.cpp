@@ -6,13 +6,11 @@
 
 #include <iostream>
 #include <string>
-#include "optionOne.h"
-#include "optionTwo.h"
+#include "dynamicArray.h"
 #include "optionThree.h"
 #include "input.h"
-#include "menus.h"
-
-void mainMenu(void);
+#include "hashTable.h"
+#include <list>
 void programOne(void);
 void programTwo(void);
 void programThree(void);
@@ -21,24 +19,23 @@ using namespace std;
 
 int main(void)
 {
-    mainMenu();
-    return 0;
-}
-
-//PreCondition: NA
-//PostCondition: redirects user to different menus based on their choice
-void mainMenu(void)
-{
     do
     {
         clearScreen();
 
-        displayMainMenu();
+        cout << "\n\tCMPR131 Chapter 12: Searches and hashing by Anthony, An, Van, Vincent, Nhan (10/7/21)" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
+        cout << "\t\t1> Searching from an unsorted dynamic array" << endl;
+        cout << "\t\t2> Searching from a sorted dynamic array" << endl;
+        cout << "\t\t3> Application using hashing" << endl;
+        cout << "\t" + string(100, char(196)) << endl;
+        cout << "\t\t0> exit" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
 
         int userInput = inputInteger("\t\tOption: ", 0, 3);
         switch (userInput)
         {
-        case 0: return;
+        case 0: exit(1); break;
         case 1: programOne(); break;
         case 2: programTwo(); break;
         case 3: programThree(); break;
@@ -46,31 +43,45 @@ void mainMenu(void)
         }
 
     } while (true);
+    return EXIT_SUCCESS;
 }
 
 //PreCondition: NA
 //PostCondition: 
 void programOne(void)
 {
-    DynamicString dynamicString;
 
+    vector<string>array;
     do
     {
-        displayOptionOneMenu();
+        clearScreen();
+
+        cout << "\n\t1> Searching unsorted dynamic arrays" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
+        cout << "\t\tA> Read random string data and store into the dynamic array" << endl;
+        cout << "\t\tB> Add an element to the dynamic array" << endl;
+        cout << "\t\tC> Display elements from the array" << endl;
+        cout << "\t\tD> Search for an element from the array" << endl;
+        cout << "\t\tE> Clear the array" << endl;
+        cout << "\t" + string(100, char(196)) << endl;
+        cout << "\t\t0> return" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
+
         int option = inputChar("\t\tOption: ");
 
 
         switch (option)
         {
         case '0': return;
-        case 'a': case 'A': A(dynamicString); break;
-        case 'b': case 'B': B(dynamicString); break;
-        case 'c': case 'C': C(dynamicString); break;
-        case 'd': case 'D': D(dynamicString); break;
-        case 'e': case 'E': E(dynamicString); break;
+        case 'A': initArray(array,false); break;
+        case 'B': push(array,false); break;
+        case 'C': display(array); break;
+        case 'D': search(array,false); break;
+        case 'E': clearArray(array); break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A','B','C','D', or 'E'" << endl;
-            pause("\n\t\tPress enter to continue...");
         }
+        cout << endl;
+        pause("\n\t\tPress enter to continue...");
     } while (true);
 }
 
@@ -79,25 +90,34 @@ void programOne(void)
 //PostCondition: 
 void programTwo(void)
 {
-    DynamicString dynamicString;
-
+    vector<string>array;
     do
     {
-        displayOptionTwoMenu();
-
+        clearScreen();
+        cout << "\n\t2> Searching sorted dynamic arrays" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
+        cout << "\t\tA> Read random string data and store into the dynamic array" << endl;
+        cout << "\t\tB> Add an element to the dynamic array" << endl;
+        cout << "\t\tC> Display elements from the array" << endl;
+        cout << "\t\tD> Search for an element from the array" << endl;
+        cout << "\t\tE> Clear the array" << endl;
+        cout << "\t" + string(100, char(196)) << endl;
+        cout << "\t\t0> return" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
         int option = inputChar("\t\tOption: ");
 
         switch (option)
         {
         case '0': return;
-        case 'a': case 'A': A2(dynamicString); break;
-        case 'b': case 'B': B2(dynamicString); break;
-        case 'c': case 'C': C2(dynamicString); break;
-        case 'd': case 'D': D2(dynamicString); break;
-        case 'e': case 'E': E2(dynamicString); break;
+        case 'A': initArray(array, true); break;
+        case 'B': push(array, true); break;
+        case 'C': display(array); break;
+        case 'D': search(array, true); break;
+        case 'E': clearArray(array); break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A','B','C','D', or 'E'" << endl;
-            pause("\n\t\tPress enter to continue...");
         }
+        cout << endl;
+        pause("\n\t\tPress enter to continue...");
     } while (true);
 }
 
@@ -105,23 +125,35 @@ void programTwo(void)
 //PostCondition: 
 void programThree(void)
 {
+    int totalRecords = 0;
+    list<student>studentList;
+    hashTable table;
     do
     {
         clearScreen();
-        displayOptionThreeMenu();
-
+        cout << "\n\t3> Application using hashing" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
+        cout << "\t\tA> Read data file, hash and insert into the dynamic array" << endl;
+        cout << "\t\tB> Search an element from the dynamic array" << endl;
+        cout << "\t\tC> Insert an element into the dynamic array" << endl;
+        cout << "\t\tD> Remove an element from the dynamic array" << endl;
+        cout << "\t\tE> Display all records from the array" << endl;
+        cout << "\t" + string(100, char(196)) << endl;
+        cout << "\t\t0> return" << endl;
+        cout << "\t" + string(100, char(205)) << endl;
         int option = inputChar("\t\tOption: ");
-
         switch (option)
         {
         case '0': return;
-        case 'a': case 'A': /*function here*/ break;
-        case 'b': case 'B': /*function here*/  break;
-        case 'c': case 'C': /*function here*/  break;
-        case 'd': case 'D': /*function here*/  break;
-        case 'e': case 'E': /*function here*/  break;
+        case 'A': readfile(totalRecords, table); break;
+        case 'B': hashSearch(table);  break;
+        case 'C': insertStudent(table);  break;
+        case 'D': removeStudent(table);  break;
+        case 'E': table.display();  break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A','B','C','D', or 'E'" << endl;
-            pause("\n\t\tPress enter to continue...");
         }
+        cout << endl;
+        pause("\n\t\tPress enter to continue...");
     } while (true);
 }
+

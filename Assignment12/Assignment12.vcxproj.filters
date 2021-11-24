@@ -23,17 +23,22 @@
     <ClInclude Include="input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="optionOne.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="optionTwo.h">
+    <ClInclude Include="dynamicArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="optionThree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menus.h">
+    <ClInclude Include="Student.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="hashTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Students.dat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
