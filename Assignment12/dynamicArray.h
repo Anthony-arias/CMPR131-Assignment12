@@ -2,6 +2,7 @@
 
 #ifndef OPTION_ONE_LOCK
 #define OPTION_ONE_LOCK
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,6 +10,8 @@
 #include "input.h"
 using namespace std;
 
+//PreCondition: Input vector string and isSort (true  = sorted, false = unsorted)
+//PostCondition: Generate string array
 void initArray(vector<string>& array, bool isSort)
 {
 	srand(time(0));
@@ -25,6 +28,8 @@ void initArray(vector<string>& array, bool isSort)
 		sort(array.begin(), array.end());
 }
 
+//PreCondition: Input vector string and isSort (true  = sorted, false = unsorted)
+//PostCondition: Put new value into the array
 void push(vector<string>& array, bool isSort)
 {
 	string element = inputString("\n\t\tEnter a string element: ", false);
@@ -34,6 +39,9 @@ void push(vector<string>& array, bool isSort)
 		sort(array.begin(), array.end());
 }
 
+
+//PreCondition: Input vector string 
+//PostCondition: Display the array into the screen
 void display(vector<string> array)
 {
 	if (array.size() == 0)
@@ -46,6 +54,9 @@ void display(vector<string> array)
 	}
 }
 
+
+//PreCondition: Input vector string, string need to search, begin position i and location 
+//PostCondition: find the element in the array using serial search
 void serialSearch(vector<string>array, string element, int i, int &location)
 {
 	if (i == array.size())
@@ -59,7 +70,8 @@ void serialSearch(vector<string>array, string element, int i, int &location)
 	}
 }
 
-
+//PreCondition: Input vector string, string need to search, left position, right positon,  and location 
+//PostCondition: find the element in the array using binary search
 void binarySearch(vector<string>array, string element, int left, int right, int &location)
 {
 	int middle;
@@ -87,6 +99,8 @@ void binarySearch(vector<string>array, string element, int left, int right, int 
 	}
 }
 
+//PreCondition: Input vector string and isSort (true  = sorted, false = unsorted)
+//PostCondition: find the element in the array using serial search and binary search
 void search(vector<string>array, bool isSort)
 {
 	if (array.size() == 0)
@@ -145,6 +159,9 @@ void search(vector<string>array, bool isSort)
 	}
 }
 
+
+//PreCondition: Input vector string
+//PostCondition: Clear all data in the array
 void clearArray(vector<string> &array)
 {
 	if (array.size() == 0)
