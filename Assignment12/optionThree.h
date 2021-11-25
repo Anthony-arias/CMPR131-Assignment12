@@ -11,8 +11,9 @@
 #include <list>
 
 using namespace std;
-//PreCondition: input source file, student, and studentList
-//PostCondition: Adds a new element at the front of the list
+
+//PreCondition: input source file, student, and hashTable
+//PostCondition: Adds new student into the table
 void addOneRecord(fstream& source, student& s, hashTable& table)
 {
     string line;
@@ -31,9 +32,8 @@ void addOneRecord(fstream& source, student& s, hashTable& table)
     }
 }
 
-//PreCondition: input studentList and option 
-//PostCondition: Read data from the input.dat file.
-//If the option is C -  Adds a new element at the front of the list else adds a new element at the end of the list
+//PreCondition: input total records and hashTable 
+//PostCondition: Read data from the Students.dat file and stored into the hashTable
 void readfile(int &totalRecords, hashTable &table)
 {
     totalRecords = 0;
@@ -76,6 +76,9 @@ void readfile(int &totalRecords, hashTable &table)
     
 }
 
+
+//PreCondition: input hashTable 
+//PostCondition: insert new student into the hashTable
 void insertStudent(hashTable table)
 {
     student s;
@@ -87,12 +90,18 @@ void insertStudent(hashTable table)
     cout << "\n\t\tInserted the new record." << endl;
 }
 
+
+//PreCondition: input hashTable 
+//PostCondition: search student from the hashTable
 void hashSearch(hashTable table)
 {
     int ID = inputInteger("\n\t\tEnter a student ID to search: ", true);
     table.search(ID);
 }
 
+
+//PreCondition: input hashTable 
+//PostCondition: remove student from the hashTable
 void removeStudent(hashTable table)
 {
     int ID = inputInteger("\n\t\tEnter a student ID to remove: ", true);

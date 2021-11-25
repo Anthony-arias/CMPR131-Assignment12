@@ -17,6 +17,8 @@ void programThree(void);
 
 using namespace std;
 
+//PreCondition: NA
+//PostCondition: Main function
 int main(void)
 {
     do
@@ -47,7 +49,7 @@ int main(void)
 }
 
 //PreCondition: NA
-//PostCondition: 
+//PostCondition: Searching from an unsorted dynamic array
 void programOne(void)
 {
 
@@ -87,7 +89,7 @@ void programOne(void)
 
 
 //PreCondition: NA
-//PostCondition: 
+//PostCondition: Searching from a sorted dynamic array
 void programTwo(void)
 {
     vector<string>array;
@@ -122,7 +124,7 @@ void programTwo(void)
 }
 
 //PreCondition: NA
-//PostCondition: 
+//PostCondition: Application using hashing
 void programThree(void)
 {
     int totalRecords = 0;

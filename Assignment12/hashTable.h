@@ -13,29 +13,40 @@ class hashTable
     vector<student>* hashList;
 
 public:
-    // Constructor
+
+    //PreCondition: NA
+    //PostCondition: default constructor
     hashTable(int newSize=0)
     {
         this->size = newSize;
         hashList = new vector<student>[size];
     }
+
+    //PreCondition: input newSize
+    //PostCondition: set new value for size and size of hashList
     void setSize(int newSize)
     {
         this->size = newSize;
         hashList = new vector<student>[size];
     }
 
+    //PreCondition: input x
+    //PostCondition: return index of x
     int hashFunction(int x) 
     {
         return (x % size);
     }
 
+    //PreCondition: input student
+    //PostCondition: insert the student in to the hashList
     void insertItem(student s)
     {
         int index = hashFunction(s.getID());
         hashList[index].push_back(s);
     }
-   
+
+    //PreCondition: input x
+    //PostCondition: remove the student from the hashList
     void removeItem(int x)
     {
         if (size == 0)
@@ -56,11 +67,16 @@ public:
         }
     }
 
+    //PreCondition: input x
+    //PostCondition: return index of x
     int getIndex(int x) 
     {
         return hashFunction(x);
     }
 
+
+    //PreCondition: NA
+    //PostCondition: return size of the data in the hashlist
     int getSize() const
     {
         int count = 0;
@@ -70,6 +86,8 @@ public:
         return count;
     }
 
+    //PreCondition: input x
+    //PostCondition: search x from the hashList
     void search(int x)
     {
         if (size == 0)
@@ -94,6 +112,10 @@ public:
                 cout << "\n\t\tERROR: ID cannot be found." << endl;
         }
     }
+
+
+    //PreCondition: NA
+    //PostCondition: display all data from the hashList
     void display()
     {
         if (size == 0)
@@ -109,6 +131,9 @@ public:
             }
         }
     }
+
+    //PreCondition: NA
+    //PostCondition: clear all data from the hashList
     void clear()
     {
         for (int i = 0; i < size; i++)
